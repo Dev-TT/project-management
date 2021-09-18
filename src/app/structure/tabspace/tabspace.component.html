@@ -1,0 +1,10 @@
+
+
+  <button pButton type="button" icon="pi pi-plus" class="p-button-outlined" (click)="onAddTab()"></button>
+  <!-- (requestToCloseTab)="closeTab($event)"  (requestToActivateTab)="selectTab($event)"-->
+      <app-tab *ngFor="let tab of myTabs" [tab]=tab ></app-tab>     <!--  also could:        (click)="selectTab(tab)"   but applies to ALL clicks--> 
+      <button pButton type="button" icon="pi pi-ellipsis-h" class="p-button-text"></button>
+  <!-- <button pButton type="button" label="Cancel" icon="pi pi-times" class="p-button-text"></button>  
+  <button pButton type="button" label="Submit" class="p-button"></button> -->
+
+  <!-- <app-testcontainer *ngFor="let tab of myTabs" [tab]=tab ></app-testcontainer> -->

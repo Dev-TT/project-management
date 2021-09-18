@@ -1,0 +1,78 @@
+
+
+    ok empezamos
+<!-- Button test -->
+    <button pButton type="button" label="Click" ></button>
+    <p-button label="Click"  #luisitoDiv></p-button>
+    <button pButton type="button" icon="pi pi-check" iconPos="left"></button>
+    <p-button label="Click" icon="pi pi-check" iconPos="left"></p-button>
+
+    <button pButton type="button" icon="fas fa-address-card" iconPos="left"></button>
+    <p-button label="Click" icon="fas fa-address-card" iconPos="left" class="Luis"> </p-button>
+
+    <i class="fas fa-address-card">ss</i>
+
+    <!-- Primeflex test -->
+    <div class="grid">
+      <div class="col">1</div>
+      <div class="col">2</div>
+      <div class="col">3</div>
+  </div>
+
+  <!-- 12-column grid -->
+  <div class="grid">
+    <div class="p-col-4">4</div>
+    <div class="p-col">1 </div>
+    <div class="p-col">1 </div>
+    <div class="p-col">1 </div>
+    <div class="p-col">1 </div>
+    <div class="p-col">1 </div>
+    <div class="p-col">1 </div>
+    <div class="p-col">1 </div>
+    <div class="p-col">1 </div>
+</div>
+
+<div class="p-grid">
+    <div class="p-col-2">2</div>
+    <div class="p-col-6">6</div>
+    <div class="p-col-4">4</div>
+</div>
+
+
+<!-- primeflex multiline test -->
+<div class="p-grid">
+  <div class="p-col-6">6</div>
+  <div class="p-col-6">6</div>
+  <div class="p-col-6">6</div>
+  <div class="p-col-6">6</div>
+</div>
+
+
+<p-menubar [model]="items1"></p-menubar>
+<p-panelMenu [model]="items" [style]="{'width':'300px'}"></p-panelMenu>
+
+
+
+<p-tabView>
+  <p-tabPanel header="Header 1" rightIcon="pi pi-bookmark">
+     Content 1
+  </p-tabPanel>
+  <p-tabPanel header="Header 2" rightIcon="pi pi-bookmark">
+      Content 2
+  </p-tabPanel>
+  <p-tabPanel header="Header 3">
+      Content 3
+  </p-tabPanel>
+  
+  <p-button label="Click" ></p-button>
+</p-tabView>
+
+
+
+<p-splitButton label="Save" icon="pi pi-check" (onClick)="save()" [model]="items3" ></p-splitButton>
+
+<p-splitButton label="Save" icon="pi pi-check" (onClick)="save()"  [model]="items3" appendTo="luisitoDiv"></p-splitButton>
+
+  <!-- Luisitodiv es el templateVariable (camelCase) -->
+<!-- <ng-template #luisitoDiv><h1>GRITO</h1><p>parrafo</p></ng-template> -->
+

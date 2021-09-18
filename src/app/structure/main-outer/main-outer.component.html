@@ -1,0 +1,13 @@
+
+<div class="grid">
+    <div class="col-12">
+      <!-- Top Header of Main (Tabs) -->
+        <app-tabspace></app-tabspace>
+    </div>
+    <div class="col-12" style="border-width:1px;border-color:lightgray;border-style: solid;">
+      <!-- Inner Main -->
+      <app-main-inner *ngFor="let tab of myTabs" [tab]=tab [hidden]="!tab.active" ></app-main-inner>
+      
+    </div>  
+    
+  </div>

@@ -1,0 +1,5 @@
+
+    <button pButton pRipple type="button" label="{{tab.name}}" class="p-button-{{tab.active?'raised':'plain'}} p-button-text" (click)="onActivate()"></button>
+<button pButton type="button" icon="fas fa-times" class="p-button-{{tab.active?'raised':'plain'}} p-button-text " (click)="onClose()" (mouseover)="onCloseMouseOver(true)" (mouseout)="onCloseMouseOver(false)"></button>
+
+<!-- fas {{(!tab.active && !hovered)?'':'fa-times'}} -->
