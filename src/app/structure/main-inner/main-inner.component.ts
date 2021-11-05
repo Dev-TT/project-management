@@ -25,6 +25,7 @@ export class MainInnerComponent implements OnInit {
   //FilterTable
   projects: Project[]=[];
   project: Project;
+  blankProject: Project;
   selectedProjects: Project[]=[];
   submitted: boolean=false;
   statuses: any[]=[];
@@ -41,9 +42,10 @@ export class MainInnerComponent implements OnInit {
     ) { 
     this.myTabs=[];
     this.tab= new Tab('Starting Title');
-    this.project=new Project("1","2","3");
+    //this.project=new Project("1","2","3");
+    this.blankProject={contractNo: "", projectNo:"", projectTitle:""};
+    this.project=this.blankProject;
     
-
   }
 
   ngOnInit(): void {
@@ -92,9 +94,9 @@ export class MainInnerComponent implements OnInit {
     {label: 'LOWSTOCK', value: 'lowstock'},
     {label: 'OUTOFSTOCK', value: 'outofstock'}
   ];  
-  this.projects.push(new Project("c1", "p1", "#1111"));
-  this.projects.push(new Project("c1", "p2", "#2222"));
-  this.projects.push(new Project("c2", "p3", "#3333"));
+  // this.projects.push(new Project("c1", "p1", "#1111"));
+  // this.projects.push(new Project("c1", "p2", "#2222"));
+  // this.projects.push(new Project("c2", "p3", "#3333"));
   }
 
 
@@ -112,7 +114,9 @@ export class MainInnerComponent implements OnInit {
     this.myTabs=this.tabsService.myTabs;
   }
   openNew(){
-    this.project = new Project("","","");
+    //this.project = new Project("","","");
+    this.project=this.blankProject;
+
     this.submitted = false;
     this.productDialog = true;
   }
@@ -125,27 +129,28 @@ export class MainInnerComponent implements OnInit {
   saveProduct(){
     this.projects.push(this.project);
     
-    this.http.post("https://angulartraining-9f739-default-rtdb.firebaseio.com/posts.json",this.project).subscribe( responseData=> {
+    this.http.post("https://angulartraining-9f739-default-rtdb.firebaseio.com/projects.json",this.project).subscribe( responseData=> {
       console.log(responseData);
     });
     this.productDialog = false;
-    this.project = new Project("","","");
+    //this.project = new Project("","","");
+    this.project=this.blankProject;
+
     
   }
   getProjects(){
-    this.http.get("https://angulartraining-9f739-default-rtdb.firebaseio.com/posts.json").subscribe(projects=>{
+    this.http.get("https://angulartraining-9f739-default-rtdb.firebaseio.com/projects.json").subscribe(projects=>{
       console.log('withouth pipe:');
       
       console.log(projects);
+      
     })
     
-    this.http.get("https://angulartraining-9f739-default-rtdb.firebaseio.com/posts.json").pipe(map((responseData:any) => {
-      const projectsArray: string[]=[];
+    this.http.get<{[key: string]: Project}>("https://angulartraining-9f739-default-rtdb.firebaseio.com/projects.json").pipe(map(responseData => {
+      const projectsArray: Project[]=[];
       console.log("now will start the for:");	
       for (const key in responseData){
         if (responseData.hasOwnProperty(key)){
-          //aaa="2";
-          //responseData[key];
           console.log(key);
           projectsArray.push({...responseData[key], id: key });
         }
@@ -155,6 +160,7 @@ export class MainInnerComponent implements OnInit {
       console.log('with pipe:');
 
       console.log(projects);
+      this.projects=projects;
     })
   }
   

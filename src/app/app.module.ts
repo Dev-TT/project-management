@@ -24,6 +24,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {MessageService} from 'primeng/api';
 import {DialogModule} from 'primeng/dialog';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 import { TopmenuComponent } from './structure/topmenu/topmenu.component';
 import { StatusbarComponent } from './structure/statusbar/statusbar.component';
@@ -67,7 +68,8 @@ import { TestcontainerComponent } from './structure/tabspaces/testcontainer/test
     SplitterModule,
     CardModule,
     ConfirmDialogModule,
-    DialogModule
+    DialogModule,
+    OverlayPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
